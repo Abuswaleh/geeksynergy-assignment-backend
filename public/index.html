@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Geeksynergy</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+		<style>
+			.hidden {
+				display: none;
+			}
+			.disabled {
+				border: none;
+			}
+			table td {
+				position: relative;
+			}
+
+			table td input[type="text"] {
+				background: transparent;
+				width: 100%;
+				box-sizing: border-box;
+				padding: 8px;
+				font-size: 14px;
+			}
+			input {
+				max-width: 350px;
+			}
+
+			table td input[type="text"]:disabled {
+				color: inherit;
+				cursor: default;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="container navbar bg-light">
+				<a class="brand" href="#"
+					>User Management System | Geeksynergy Technology</a
+				>
+				<div class="nav-items">
+					<span class="navbar-text"
+						>Hello, <span id="userName">User</span></span
+					>
+					<button class="btn btn-primary ml-2 hidden" id="logoutBtn">
+						Logout
+					</button>
+				</div>
+			</nav>
+
+			<div class="container mt-2">
+				<h3 id="contentTitle" class="mb-3">Manage Users</h3>
+
+				<!-- register component -->
+				<div id="registerSection" class="hidden">
+					<form id="registerForm">
+						<div class="mb-3">
+							<label for="registerName" class="form-label"
+								>Name</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="registerName"
+								required
+							/>
+						</div>
+						<div class="mb-3">
+							<label for="registerEmail" class="form-label"
+								>Email</label
+							>
+							<input
+								type="email"
+								class="form-control"
+								id="registerEmail"
+								required
+							/>
+						</div>
+						<div class="mb-3">
+							<label for="registerPassword" class="form-label"
+								>Password</label
+							>
+							<input
+								type="password"
+								class="form-control"
+								id="registerPassword"
+								required
+							/>
+						</div>
+						<div class="mb-3">
+							<label for="registerPhone" class="form-label"
+								>Phone No</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="registerPhone"
+							/>
+						</div>
+						<div class="mb-3">
+							<label for="registerProfession" class="form-label"
+								>Profession</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="registerProfession"
+							/>
+						</div>
+						<button type="submit" class="btn btn-primary">
+							Register
+						</button>
+						<p>
+							Already have an account?
+							<a href="#" id="showLogin">Login here</a>
+						</p>
+					</form>
+				</div>
+
+				<!-- login component -->
+				<div id="loginSection" class="hidden">
+					<form id="loginForm">
+						<div class="mb-3">
+							<label for="loginEmail" class="form-label"
+								>Email</label
+							>
+							<input
+								type="email"
+								class="form-control"
+								id="loginEmail"
+								required
+							/>
+						</div>
+						<div class="mb-3">
+							<label for="loginPassword" class="form-label"
+								>Password</label
+							>
+							<input
+								type="password"
+								class="form-control"
+								id="loginPassword"
+								minlength="4"
+								required
+							/>
+						</div>
+						<button type="submit" class="btn btn-primary">
+							Login
+						</button>
+						<p>
+							Don't have an account?
+							<a href="#" id="showRegister">Register here</a>
+						</p>
+					</form>
+				</div>
+
+				<!-- table component -->
+				<table id="usersTable" class="table table-bordered hidden">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Phone No</th>
+							<th>Profession</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody id="tableData"></tbody>
+				</table>
+			</div>
+
+			<script src="/js/scripts.js"></script>
+		</div>
+	</body>
+</html>
