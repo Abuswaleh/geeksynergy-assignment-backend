@@ -132,10 +132,10 @@ async function handleDelete(userId, row) {
 		const confirmation = confirm(
 			"You are about to delete your own account, you will be logout. Are you want to continue?"
 		);
-		if (confirmation) {
-			await handleDeleteUser(userId, row);
-			return handleLogout();
-		}
+		if (!confirmation) return;
+
+		await handleDeleteUser(userId, row);
+		return handleLogout();
 	}
 	await handleDeleteUser(userId, row);
 }
